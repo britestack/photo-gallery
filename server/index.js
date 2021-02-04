@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const port = 6002;
+const port = 7002;
 
 const HomeController = require('./Controllers/HomeController.js');
 
