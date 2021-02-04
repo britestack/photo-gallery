@@ -1,39 +1,306 @@
-# Project Name
+# brightstack Photo Gallery
 
-> Project description
+> `Designed by BrightStack.io`
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-
-## Usage
-
-> Some usage instructions
+  -
+  -
+  -
 
 ## Requirements
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+- [PostgreSQL](https://www.postgresql.org/download/)
 
 - Node 6.13.0
-- etc
 
 ## Development
 
 ### Installing Dependencies
 
 From within the root directory:
-
 ```sh
-npm install -g webpack
-npm install
+npm i -g webpack
+npm i
 ```
 
+## Usage
+-Start server * client using npm run dev:react npm run start
+
+- **update this with seeding script to generate mock data in a CSV file
+
+</br>
+
+## PhotoGallery API
+
+</br>
+
+### Select home images matching a Home ID
+
+-GET `api/homeimages/:id`
+
+**Success Status Code:** `200`
+
+
+**Returns:** JSON home images array.
+
+```json
+    {
+      "id": INT,
+      "Home_ID": INT,
+      "ImageURL": STRING,
+    }
+
+```
+
+## _HOME API_
+
+-GET `/api/homeinfo/:id`
+
+**Path Parameters:**
+- `id` - Home ID
+
+**Success Status Code:** `200`
+
+
+**Returns:** Expects JSON array comprised of Home info objects.
+
+```json
+{
+  {
+  "id": INT,
+  "AddressLine1": STRING,
+  "AddressLine2": STRING,
+  "AskingPrice": STRING,
+  "NumBeds": STRING,
+  "NumBaths": INT,
+  "SqFT": INT,
+
+  }
+}
+```
+
+-POST `/api/Home`
+
+**Path Parameters:**
+- `id` - Home ID
+
+**Request Body**
+```json
+{
+  {
+  "id": INT,
+  "AddressLine1": STRING,
+  "AddressLine2": STRING,
+  "AskingPrice": INT,
+  "NumBeds": INT,
+  "NumBaths": INT,
+  "SqFT": INT,
+
+  }
+}
+  ```
+
+### Path responses:
+**Success Status Code:** `201`
+
+
+### Response format:
+* Returns: JSON
+
+```json
+    {
+      "message": "Successfully added home info"
+    }
+```
+
+```json
+    {
+      "message": "Failed to add home info."
+    }
+```
+
+</br>
+
+-Patch `/api/homeInfo/:id`
+
+**Path Parameters:**
+- `id` - Home ID
+
+**Request Body**
+*
+```json
+{
+  {
+  "id": INT,
+  "AddressLine1": STRING,
+  "AddressLine2": STRING,
+  "AskingPrice": INT,
+  "NumBeds": INT,
+  "NumBaths": INT,
+  "SqFT": INT,
+
+  }
+}
+  ```
+
+### Path responses:
+**Success Status Code:** `201`
+
+
+### Response format:
+* Returns: JSON
+
+```json
+    {
+      "message": "Successfully updated home"
+    }
+```
+
+```json
+    {
+      "message": "Failed to update home."
+    }
+```
+</br>
+
+-DELETE `/api/homeInfo/:id`
+
+###Path parameters:
+
+**Request Body**
+*
+
+   ```id``` Home ID
+
+
+### Path responses:
+**Success Status Code:** `204`
+
+
+### Response format:
+* Returns: JSON
+
+```json
+    {
+      "message": "Successfully deleted home"
+    }
+```
+
+```json
+    {
+      "message": "Failed to deleted home."
+    }
+```
+
+</br>
+
+
+
+## __USER API__
+ </br>
+
+## Add a user
+
+- POST `/api/users`
+
+**Success Status Code:** `201`
+
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+{
+  "Id": INT,
+  "Username": String,
+  "Email": String,
+  "Phone": String
+}
+```
+</br>
+
+-GET `/api/users/:userId`
+
+**Path Parameters:**
+- `id` - user ID
+
+**Success Status Code:** `200`
+
+
+**Returns:** Expects JSON with the following keys.
+
+```json
+{
+  "Id": INT,
+  "Username": String,
+  "Email": String,
+  "Phone": String
+}
+```
+</br>
+
+-Patch `/api/users/:userId`
+
+**Path Parameters:**
+- `id` - user ID
+
+**Request Body**
+*
+```json
+{
+  "Id": INT,
+  "Username": String,
+  "Email": String,
+  "Phone": String
+}
+```
+
+### Path responses:
+**Success Status Code:** `201`
+
+
+### Response format:
+* Returns: JSON
+
+```json
+    {
+      "message": "Successfully added a user"
+    }
+```
+
+```json
+    {
+      "message": "Failed to add a user."
+    }
+```
+
+</br>
+
+-DELETE `/api/user/:deleteId`
+
+**Path Parameters:**
+- `id` - user ID
+
+**Request Body**
+
+   ```id``` user ID
+
+
+### Path responses:
+**Success Status Code:** `204`
+
+
+### Response format:
+* Returns: JSON
+
+```json
+    {
+      "message": "Successfully deleted user from database."
+    }
+```
+
+```json
+    {
+      "message": "Failed to deleted user from database."
+    }
+```
