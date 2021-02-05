@@ -1,12 +1,7 @@
 # brightstack Photo Gallery
 
-> `Designed by BrightStack.io`
+> Front End Engineer: Douglas Perez
 
-## Related Projects
-
-  -
-  -
-  -
 
 ## Requirements
 
@@ -63,7 +58,7 @@ npm i
 **Success Status Code:** `200`
 
 
-**Returns:** Expects JSON array comprised of Home info objects.
+**Returns:** Expects JSON array comprised of Home info.
 
 ```json
 {
@@ -74,16 +69,14 @@ npm i
   "AskingPrice": STRING,
   "NumBeds": STRING,
   "NumBaths": INT,
-  "SqFT": INT,
+  "SqFt": INT,
 
   }
 }
 ```
 
--POST `/api/Home`
+-POST `/api/HomeInfo`
 
-**Path Parameters:**
-- `id` - Home ID
 
 **Request Body**
 ```json
@@ -95,8 +88,7 @@ npm i
   "AskingPrice": INT,
   "NumBeds": INT,
   "NumBaths": INT,
-  "SqFT": INT,
-
+  "SqFt": INT,
   }
 }
   ```
@@ -166,15 +158,14 @@ npm i
 
 -DELETE `/api/homeInfo/:id`
 
-###Path parameters:
+### Path parameters:
+</br>
 
-**Request Body**
-*
-
-   ```id``` Home ID
+- `id` - Home ID
 
 
 ### Path responses:
+</br>
 **Success Status Code:** `204`
 
 
@@ -286,21 +277,8 @@ npm i
    ```id``` user ID
 
 
-### Path responses:
+
+**Returns:**
 **Success Status Code:** `204`
 
 
-### Response format:
-* Returns: JSON
-
-```json
-    {
-      "message": "Successfully deleted user from database."
-    }
-```
-
-```json
-    {
-      "message": "Failed to deleted user from database."
-    }
-```

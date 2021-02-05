@@ -1,7 +1,7 @@
 const db = require('../../database/index.js');
 
 const getInfo = (callback) => {
-  db.query('SELECT * FROM HomeInfo WHERE id = 1', callback);
+  db.query('SELECT * FROM HomeInfo', callback);
 };
 
 const getImages = (callback) => {
