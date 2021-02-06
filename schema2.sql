@@ -32,3 +32,5 @@ CREATE TABLE home_images (
 \COPY owners FROM '/Users/douglasperez/Hack-reactor/SDC/Postgress-Refactor/PhotoGallery-rev1-copy/database/CSV/owners.csv' WITH CSV HEADER DELIMITER ',';
 
 \COPY home_info FROM '/Users/douglasperez/Hack-reactor/SDC/Postgress-Refactor/PhotoGallery-rev1-copy/database/CSV/home_info.csv' WITH CSV HEADER DELIMITER ',';
+
+\COPY home_images FROM '/Users/douglasperez/Hack-reactor/SDC/Postgress-Refactor/PhotoGallery-rev1-copy/database/CSV/home_images.csv' WITH CSV HEADER DELIMITER ',';
