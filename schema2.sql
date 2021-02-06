@@ -1,36 +1,34 @@
-DROP DATABASE IF EXISTS HomesOptimized;
+DROP DATABASE IF EXISTS homesoptimized;
 
-CREATE DATABASE HomesOptimized;
-USE HomesOptimized;
+CREATE DATABASE homesoptimized;
+\c homesoptimized;
 
-CREATE TABLE HomeInfo(
-  id              INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Owner_id        INT NOT NULL,
-  AddressLine1    VARCHAR(150) NOT NULL,
-  AddressLine2    VARCHAR(150),
-  AskingPrice     INT NOT NULL,
-  NumBeds         INT NOT NULL,
-  NumBaths        FLOAT NOT NULL,
-  SqFt            INT NOT NULL,
-  Saved           BOOLEAN
-  FOREIGN KEY (Owner_id) REFERENCES OwnerInfo(id)
+CREATE TABLE owners (
+  id          SERIAL PRIMARY KEY,
+  owner_name  VARCHAR(150) NOT NULL,
+  email       VARCHAR(150) NOT NULL,
+  phone       VARCHAR(150) NOT NULL
 );
 
-CREATE TABLE HomeImages(
-  id          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Home_ID     INT NOT NULL,
-  ImageURL    VARCHAR(150),
-  FOREIGN KEY (Home_ID) REFERENCES HomeInfo(id)
+CREATE TABLE home_info (
+  id              SERIAL PRIMARY KEY,
+  owner_id        INT NOT NULL REFERENCES owners(id) ON DELETE CASCADE,
+  address_line1    VARCHAR(150) NOT NULL,
+  address_line2    VARCHAR(150),
+  asking_price     INT NOT NULL,
+  num_beds         INT NOT NULL,
+  num_baths        FLOAT NOT NULL,
+  sq_ft            INT NOT NULL,
+  saved           BOOLEAN
 );
 
-CREATE TABLE OwnerInfo(
-  id          INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  Owner_name  VARCHAR(150) NOT NULL,
-  Email       VARCHAR(150) NOT NULL,
-  Phone       VARCHAR(150) NOT NULL,
+CREATE TABLE home_images (
+  id          SERIAL PRIMARY KEY,
+  home_id     INT NOT NULL REFERENCES home_info(id) ON DELETE CASCADE,
+  image_url    VARCHAR(150)
 );
 
-INSERT INTO HomeInfo(Owner_id, AddressLine1, AddressLine2, AskingPrice, NumBeds, NumBaths, SqFt, Saved )
-VALUES (1, 'value2', 'value2', 2, 2, 2, 2, True);
+INSERT INTO owners(id, owner_name, email, phone)
+VALUES (1, 'test', 'test', 'test');
 
-RETURNING id;
+-- RETURNING id;

@@ -12,6 +12,7 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "seedDB": "node ./database/seed.js",
+    "seedDB2": "node ./database/seed2.js",
     "test": "jest --coverage",
     "docker-start": "node server"
   },

@@ -10,9 +10,11 @@
 // connection.connect();
 
 // module.exports = connection;
+
+
 var pg = require('pg');
-console.log("pg", pg);
-var conString = "postgres://douglasperez@localhost:5432/HomesOptimized";
+// console.log("pg", pg);
+var conString = "postgres://douglasperez@localhost:5432/homesoptimized";
 
 var connection = new pg.Client(conString);
 // console.log("connection", connection)
