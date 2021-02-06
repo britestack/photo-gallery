@@ -3,14 +3,14 @@ DROP DATABASE IF EXISTS homesoptimized;
 CREATE DATABASE homesoptimized;
 \c homesoptimized;
 
-CREATE TABLE owners (
+CREATE TABLE IF NOT EXISTS owners (
   id          SERIAL PRIMARY KEY,
   owner_name  VARCHAR(150) NOT NULL,
   email       VARCHAR(150) NOT NULL,
   phone       VARCHAR(150) NOT NULL
 );
 
-CREATE TABLE home_info (
+CREATE TABLE IF NOT EXISTS home_info (
   id              SERIAL PRIMARY KEY,
   owner_id        INT NOT NULL REFERENCES owners(id) ON DELETE CASCADE,
   address_line1    VARCHAR(150) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE home_images (
   image_url    VARCHAR(150)
 );
 
-INSERT INTO owners(id, owner_name, email, phone)
-VALUES (1, 'test', 'test', 'test');
 
-\COPY owners FROM '/Users/helloFriend/Desktop/C0DE/photoGallery/database/CSV/owners.csv' WITH CSV HEADER DELIMITER ',';
+\COPY owners FROM '/Users/douglasperez/Hack-reactor/SDC/Postgress-Refactor/PhotoGallery-rev1-copy/database/CSV/owners.csv' WITH CSV HEADER DELIMITER ',';
+
+\COPY home_info FROM '/Users/douglasperez/Hack-reactor/SDC/Postgress-Refactor/PhotoGallery-rev1-copy/database/CSV/home_info.csv' WITH CSV HEADER DELIMITER ',';
