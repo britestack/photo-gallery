@@ -31,4 +31,4 @@ CREATE TABLE home_images (
 INSERT INTO owners(id, owner_name, email, phone)
 VALUES (1, 'test', 'test', 'test');
 
--- RETURNING id;
+\COPY owners FROM '/Users/helloFriend/Desktop/C0DE/photoGallery/database/CSV/owners.csv' WITH CSV HEADER DELIMITER ',';
