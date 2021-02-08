@@ -112,9 +112,9 @@ const ForSale = styled.span`
 `;
 
 const PhotoGallery = (props) => (
-  <ImageWrapper0>
+  < ImageWrapper0 >
     {/* display FOR SALE, Save, and Share buttons */}
-    <HeaderContainer>
+    < HeaderContainer >
       <ForSaleContainer>
         <ForSale>
           For Sale
@@ -129,18 +129,18 @@ const PhotoGallery = (props) => (
           &nbsp;Share
         </ShareButton>
       </ButtonContainer>
-    </HeaderContainer>
+    </HeaderContainer >
 
     {/* Display 3 homepage images*/}
-    <ImageWrapper onClick={props.handleShowModal}>
-      <LargeImage src={props.images[0].ImageURL} />
+    < ImageWrapper onClick={props.handleShowModal} >
+      <LargeImage src={props.images[0].image_url} />
 
       <VerticalImageContainer>
-        <SmallImage src={props.images[1].ImageURL} style={{ borderRadius: '0px 8px 0px 0px' }} />
-        <SmallImage src={props.images[2].ImageURL} style={{ marginTop: '10px', borderRadius: '0px 0px 8px 0px' }} />
+        <SmallImage src={props.images[1].image_url} style={{ borderRadius: '0px 8px 0px 0px' }} />
+        <SmallImage src={props.images[2].image_url} style={{ marginTop: '10px', borderRadius: '0px 0px 8px 0px' }} />
       </VerticalImageContainer>
-    </ImageWrapper>
-  </ImageWrapper0>
+    </ImageWrapper >
+  </ImageWrapper0 >
 );
 
 export default PhotoGallery;
