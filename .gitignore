@@ -23,3 +23,6 @@ lib-cov
 build/
 dist/
 
+# CSV Files
+*.csv
+
