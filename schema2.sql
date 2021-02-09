@@ -28,6 +28,9 @@ CREATE TABLE home_images (
   image_url    VARCHAR(150)
 );
 
+CREATE INDEX idx_home_id
+ON home_images(home_id);
+
 
 \COPY owners FROM '/Users/douglasperez/Hack-reactor/SDC/Postgress-Refactor/PhotoGallery-rev1-copy/database/CSV/owners.csv' WITH CSV HEADER DELIMITER ',';
 
