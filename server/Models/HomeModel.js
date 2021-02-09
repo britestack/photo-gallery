@@ -6,7 +6,7 @@ const getInfo = (callback) => {
 };
 
 const getImages = (callback) => {
-  db.query('SELECT * FROM home_images', callback);
+  db.query('SELECT * FROM home_images WHERE Home_ID = 1', callback);
   //WHERE Home_ID = 1
 };
 
