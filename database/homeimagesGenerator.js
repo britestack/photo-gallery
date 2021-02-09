@@ -6,7 +6,7 @@ const homeImages = (start, end) => {
   for (let i = start; i <= end; i++) {
     let item = {
       id: i,
-      home_id: Math.floor(Math.random() * 10),
+      home_id: Math.floor(Math.random() * 100000),
       image_url: "https://loremflickr.com/320/240/dog",
     };
     photos.push(item);
@@ -24,14 +24,14 @@ const csvWriter = createCsvWriter({
 });
 
 async function writeHomeImages(number) {
-  const currChunk = Math.floor(number / 10);
+  const currChunk = Math.floor(number / 100);
   console.log("Number of Chunks", currChunk);
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 100; i++) {
     console.log(`Processing home chunk : ${i + 1}`);
     const photoDump = homeImages(currChunk * i, currChunk * (i + 1) - 1);
     await csvWriter.writeRecords(photoDump);
   }
 }
 
-writeHomeImages(100);
+writeHomeImages(6000000);

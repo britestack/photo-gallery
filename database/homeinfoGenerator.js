@@ -6,7 +6,7 @@ const homeinfo = (start, end) => {
   for (let i = start; i <= end; i++) {
     let item = {
       id: i,
-      owner_id: Math.floor(Math.random() * 10),
+      owner_id: Math.floor(Math.random() * 100000),
       email: faker.internet.email(),
       address_line1: faker.address.streetAddress(),
       address_line2: faker.address.city().concat(', ', faker.address.state(), ' ', faker.address.zipCodeByState()),
@@ -37,14 +37,14 @@ const csvWriter = createCsvWriter({
 });
 
 async function writeHomeInfo(number) {
-  const currChunk = Math.floor(number / 10);
+  const currChunk = Math.floor(number / 100);
   console.log("Number of Chunks", currChunk);
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 100; i++) {
     console.log(`Processing home chunk : ${i + 1}`);
     const infoDump = homeinfo(currChunk * i, currChunk * (i + 1) - 1);
     await csvWriter.writeRecords(infoDump);
   }
 }
 
-writeHomeInfo(100);
+writeHomeInfo(3000000);
