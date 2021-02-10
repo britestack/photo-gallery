@@ -14,7 +14,7 @@
 
 var pg = require('pg');
 // console.log("pg", pg);
-var conString = "postgres://douglasperez@localhost:5432/homesoptimized";
+var conString = "postgres://postgres:Plugblue14@ec2-54-183-96-172.us-west-1.compute.amazonaws.com:5432/homesoptimized";
 
 var connection = new pg.Client(conString);
 // console.log("connection", connection)
