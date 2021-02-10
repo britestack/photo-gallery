@@ -30,13 +30,13 @@ for (let i = 0; i < numHomes; i += 1) {
 }
 
 // Create database connection
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Plugblue2',
-  database: 'Homes',
-});
-connection.connect();
+// const connection = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'root',
+//   password: 'Plugblue2',
+//   database: 'Homes',
+// });
+// connection.connect();
 
 // Insert records into HomeInfo
 for (let i = 0; i < HomeData.length; i += 1) {

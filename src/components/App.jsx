@@ -51,7 +51,9 @@ class App extends React.Component {
 
     axios.get('/api/homeinfo', { params: { ID: randHomeID } })
       .then((response) => {
-        this.setState({ homeInfo: response.data });
+        console.log("response", response.data)
+        this.setState({ homeInfo: response.data.rows });
+        console.log("this.state.homeInfo", this.state.homeInfo)
       })
       .catch((error) => {
         console.log(error);
@@ -59,9 +61,10 @@ class App extends React.Component {
 
     axios.get('/api/homeimages', { params: { ID: randHomeID } })
       .then((response) => {
+        console.log("response.data for photos", response.data.rows)
         this.setState({
-          homeImages: response.data,
-          photobox1imgs: [response.data[0], response.data[1], response.data[2]],
+          homeImages: response.data.rows,
+          photobox1imgs: [response.data.rows[0], response.data.rows[1], response.data.rows[2]],
         });
       })
       .catch((error) => {
@@ -80,11 +83,11 @@ class App extends React.Component {
           }
           {
             this.state.homeImages.length > 0 && (
-            <>
-              <Header />
-              <PhotoGallery images={this.state.homeImages} handleShowModal={this.handleShowModal} />
-              <HomeInfo />
-            </>
+              <>
+                <Header />
+                <PhotoGallery images={this.state.homeImages} handleShowModal={this.handleShowModal} />
+                <HomeInfo />
+              </>
             )
           }
         </HomePageContainer>
