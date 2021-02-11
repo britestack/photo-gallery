@@ -1,6 +1,11 @@
 ## MAC files ##
 .DS_Store
 
+# CSV Files
+owners.csv
+home_info.csv
+home_images.csv
+
 ## NPM ##
 npm
 npm-debug.log
@@ -22,4 +27,6 @@ lib-cov
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+
+
 
